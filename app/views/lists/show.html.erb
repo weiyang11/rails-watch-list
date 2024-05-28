@@ -1,0 +1,21 @@
+<div class="container">
+  <h2><%= @list.name %></h2>
+
+<nav>
+<%= link_to "Add Movie",  new_list_bookmark_path(@list) %>
+</nav>
+
+
+<% @list.movies.each do |list| %>
+
+<%= list.title %>
+
+<%= link_to "Delete",
+    bookmark_path(list),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+
+<% end %>
+<p>
+<%= link_to "Back", lists_path %>
+</p>
+</div>
